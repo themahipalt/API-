@@ -1,0 +1,13 @@
+Technologies convered
+=====================
+Front end
+Javascript
+Node
+Typescript
+Angular
+Back end
+Dotnet Core
+Asp.net Core
+Asp.net Core MVC
+Asp.net Core Rest API
+Microservice Architecture.

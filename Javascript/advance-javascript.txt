@@ -1,0 +1,40 @@
+Javascript Callbacks
+===================
+A callback is a function passed as an argument to another function
+Callbacks allows a function to call another function
+A callback function can run after another function has finished
+Asynchronous Javascript
+======================
+Functions running in parallel with other functions are called asynchronous
+
+Javascript Promises
+==================
+In Promises are used to handle asynchronous operations.
+They are easy to manage when dealing with multiple asynchronous operations.
+It is idel for handling asynchronous operations in the simple manner.
+They can handle mulitple asynchronous operations easily
+They can provide better error handling than callbacks and events.
+
+Benifits or Promises
+=================
+1.impoves code readabilty.
+2.better handling of asynchronous operations
+3.Better error-handling
+4.Better flow of control definisation of asynchronous logic
+
+A Promise has four states:
+1.fulfilled:Action related to the promise succeeded.
+2.rejected:Action related to the promise is failed
+3.pending:Promise is still pending i.e not fulfilled or rejected yet.
+4.settled:Promise had fullfilled or rejected
+
+//declaration
+var promise=new Promise(function(resolve,reject){
+//do something
+});
+Parameters
+=======
+1.Promise constructor takes only one argument,a callback fucntion
+2.callback function takes two arguments,resolve and reject.
+3.Perform operations inside the callback function and if everything went well then call resolve.
+4.If something went wrong then call reject.

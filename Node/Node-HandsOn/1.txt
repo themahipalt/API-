@@ -1,0 +1,2 @@
+Node js relay more on Callbacks
+Node js is easy to learn and implement

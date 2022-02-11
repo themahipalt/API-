@@ -1,0 +1,14 @@
+1.Create a Class Account(AccountNo,Name,AccountType,Amt,MinBalance)
+2.Create a Class Transaction with following methods and its extends Account
+	1.Create Account()
+	2.Get Account Details(AccountId)
+	3.Get Balance(AccountId)
+	4.Deposit(amt)
+	5.Withdraw(amt) //accoutn should have the amount and after with draw balance amount should be equal or > than MinBalance.
+
+let accounts=[];
+Create Account()
+{
+let account=new Account();
+accouunts.push(account)
+}

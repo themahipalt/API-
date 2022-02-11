@@ -1,0 +1,6 @@
+IIFE
+Immediately Invoked Function Expressions (IIFE, pronounced iffy)
+An IIFE is an anonymous function contained within a pair of parenthesis and is invoked immediately. The pair of parenthesis creates a local scope for all the code inside of it and makes the anonymous function a function expression. This justifies the name “Immediately Invoked Function Expression”.
+
+Closure
+A closure is the combination of an inner function and variables defined at outer scope but accessible to inner function. In other words, a closure is an inner function that can access outer function’s variables.
