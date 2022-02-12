@@ -1,0 +1,18 @@
+
+<div class="container">
+    
+    <div class="row">
+        
+        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+            <div class="form-group">
+                <label for="my-input">Select City</label>
+                <select id="my-input" class="form-control" type="text" name="" #d on-change="GetCity(d.value)">
+                    <option *ngFor="let city of cities">{{city}}</option>
+                </select>
+            </div>
+        </div>
+        
+    </div>
+    
+</div>
+

@@ -1,0 +1,21 @@
+
+<div class="container">
+    
+    <button type="button" class="btn btn-primary" on-click="Greet()">Greet</button>
+    <div class="row">
+        
+        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+            <div class="form-group">
+                <label for="my-input">Enter name</label>
+                <input id="my-input" class="form-control" type="text" #t>
+            </div>
+            <div class="form-group">
+               <span class="text-primary">{{msg}}</span>
+            </div>
+            <button type="button" class="btn btn-info" on-click="Hello(t.value)">Click</button>
+            
+        </div>
+        
+    </div>
+</div>
+

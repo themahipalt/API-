@@ -1,0 +1,7 @@
+1. Create Angular Application
+2.Create a Model Employee(add few employee properties)
+3.Create a Component View_Employee
+4.Initaite Employee in View_Employee Componnet and display Employee details in View
+5.Create a Component View_Employees
+6.Initate Array of Employees in View_Employees component and bind employee array
+into view
