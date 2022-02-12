@@ -7,7 +7,8 @@ import { HomeComponent } from './home/home.component';
 const routes: Routes = [
   {path:'info',component:HomeComponent},
   {path:'about',component:AboutComponent},
-  {path:'contact',component:ContactComponent}
+  {path:'contact',component:ContactComponent},
+  {path:'',redirectTo:'info',pathMatch:'full'}  //set the root component
 ];
 
 @NgModule({
