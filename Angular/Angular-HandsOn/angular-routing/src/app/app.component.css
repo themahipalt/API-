@@ -1,0 +1,45 @@
+header,footer,main,nav
+{
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+header
+{
+    height: 100px;
+    background-color: blueviolet;
+}
+header h1
+{
+    text-align: center;
+    color: white;
+}
+main
+{
+    height: 400px;
+    background-color: white;
+}
+footer
+{
+    height:30px;
+    background-color: coral;
+}
+footer h2
+{
+    color: crimson;
+    text-align: center;
+}
+nav
+{
+    height: 30px;
+    background-color: aquamarine;
+}
+nav ul li
+{
+    display: inline;
+  
+}
+nav ul li a
+{
+    margin: 20px;
+}
