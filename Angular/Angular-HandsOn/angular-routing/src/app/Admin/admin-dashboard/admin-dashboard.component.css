@@ -1,0 +1,14 @@
+nav
+{
+    height: 30px;
+    background-color: aquamarine;
+}
+nav ul li
+{
+    display: inline;
+  
+}
+nav ul li a
+{
+    margin: 20px;
+}
