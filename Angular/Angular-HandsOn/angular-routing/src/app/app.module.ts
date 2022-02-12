@@ -14,6 +14,9 @@ import { SearchProductsComponent } from './Customer/search-products/search-produ
 import { ViewCartComponent } from './Customer/view-cart/view-cart.component';
 import { AddPaymentComponent } from './Customer/add-payment/add-payment.component';
 import { CustomerDashboardComponent } from './Customer/customer-dashboard/customer-dashboard.component';
+import { LoginComponent } from './Account/login/login.component';
+import { RegisterComponent } from './Account/register/register.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,11 +31,14 @@ import { CustomerDashboardComponent } from './Customer/customer-dashboard/custom
     SearchProductsComponent,
     ViewCartComponent,
     AddPaymentComponent,
-    CustomerDashboardComponent
+    CustomerDashboardComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

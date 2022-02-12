@@ -1,5 +1,6 @@
 
 <div class="container">
+   
     <nav>
         <ul>
           <li><a [routerLink]="['/admin-dashboard/view-customers']">View-Customers</a></li>
@@ -9,5 +10,7 @@
         </ul>
         </nav>
     <router-outlet></router-outlet>
+    <h2 class="text-info">Welcome,{{uname}}</h2>
+    <button type="button" class="btn btn-primary" on-click="LogOut()">LogOut</button>
 </div>
 
