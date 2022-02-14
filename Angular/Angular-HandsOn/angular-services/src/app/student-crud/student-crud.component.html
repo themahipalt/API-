@@ -1,0 +1,58 @@
+
+<div class="container">
+    
+    <div class="row">
+        
+        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+            <div class="form-group">
+                <label for="my-input">StudentId</label>
+                <input id="my-input" class="form-control" type="number" name="" [(ngModel)]="student.studentId">
+            </div>
+            <div class="form-group">
+                <label for="my-input">Name</label>
+                <input id="my-input" class="form-control" type="text" name="" [(ngModel)]="student.studentName">
+            </div>
+            <div class="form-group">
+                <label for="my-input">DOB</label>
+                <input id="my-input" class="form-control" type="date" name="" [(ngModel)]="student.studentdob">
+            </div>
+            <div class="form-group">
+                <label for="my-input">STD</label>
+                <select id="my-input" class="form-control" type="text" name="" [(ngModel)]="student.std">
+                    <option *ngFor="let item of stds">{{item}}</option>
+                </select>
+            </div>
+            
+            <button type="button" class="btn btn-primary" on-click="Save()">Add</button>
+            <button type="button" class="btn btn-primary" on-click="Search()">Search</button>
+            
+        </div>
+        
+    </div>
+    
+</div>
+
+<div class="container">
+    
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>DOB</th>
+                <th>STD</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of students">
+                <td>{{item.studentId}}</td>
+                <td>{{item.studentName}}</td>
+                <td>{{item.studentdob}}</td>
+                <td>{{item.std}}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+</div>
+
+
