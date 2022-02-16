@@ -30,5 +30,9 @@ stds:string[]=["I","II","III","IV"];
     let sid=this.student.studentId;
     this.student=this.studentService.GetStudent(sid);
   }
+  Edit()
+  {
+    this.studentService.EditStudent(this.student);
+  }
 
 }
