@@ -1,0 +1,55 @@
+
+<div class="container">
+    
+    <div class="row">
+        
+        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+            <div class="form-group">
+                <label for="my-input">ID</label>
+                <input id="my-input" class="form-control" type="text" name="" [(ngModel)]="employee.employeeId">
+            </div>
+            <div class="form-group">
+                <label for="my-input">EmployeeName</label>
+                <input id="my-input" class="form-control" type="text" name="" [(ngModel)]="employee.employeeName">
+            </div>
+            <div class="form-group">
+                <label for="my-input">Project</label>
+                <select id="my-input" class="form-control" type="text" name="" [(ngModel)]="employee.projectId">
+                    <option *ngFor="let item of projects" [value]="item.projectId">{{item.projectName}}</option>
+                </select>
+            </div>
+            
+            <button type="button" class="btn btn-default" on-click="AddEmployee()">Add</button>
+            <button type="button" class="btn btn-default" on-click="GetEmployee()">Search</button>
+            <button type="button" class="btn btn-default" on-click="DeleteEmployee()">Delete</button>
+            <button type="button" class="btn btn-default" on-click="EditEmployee()">Edit</button>
+            
+        </div>
+        
+    </div>
+    
+</div>
+<hr>
+
+<div class="container">
+    
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Project</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of employees">
+                <td>{{item.employeeId}}</td>
+                <td>{{item.employeeName}}</td>
+                <td>{{item.projectId}}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+</div>
+
+
