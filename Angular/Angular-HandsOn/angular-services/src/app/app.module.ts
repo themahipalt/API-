@@ -10,13 +10,15 @@ import { CalculateService } from './calculate.service';
 import { Demo2Component } from './demo2/demo2.component';
 import { StudentService } from './student.service';
 import { StudentCrudComponent } from './student-crud/student-crud.component';
+import { TestPipe } from './test.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     DemoComponent,
     Demo2Component,
-    StudentCrudComponent
+    StudentCrudComponent,
+    TestPipe
   ],
   imports: [
     BrowserModule,

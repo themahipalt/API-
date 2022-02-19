@@ -1,0 +1,93 @@
+<!-- main app container -->
+
+    <h5>Reactive Form Validation</h5>
+
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+           <table>
+             <tr>
+               <td><label>Title</label></td>
+               <td>
+                <select formControlName="title">
+                  <option value=""></option>
+                  <option value="Mr">Mr</option>
+                  <option value="Mrs">Mrs</option>
+                  <option value="Miss">Miss</option>
+                  <option value="Ms">Ms</option>
+              </select>
+              <div *ngIf="submitted && f.title.errors">
+                <div *ngIf="f.title.errors.required">Title is required</div>
+            </div>
+               </td>
+             </tr>
+             <tr>
+               <td><label>First Name</label></td>
+               <td>  <input type="text" formControlName="firstName"/>
+                <div *ngIf="submitted && f.firstName.errors">
+                    <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                    <div *ngIf="f.firstName.errors.pattern">Enter only Alphabets</div>
+                </div></td>
+             </tr>
+             <tr>
+               <td> <label>Last Name</label></td>
+               <td>
+                <input type="text" formControlName="lastName"/>
+                <div *ngIf="submitted && f.lastName.errors">
+                    <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                </div>
+               </td>
+             </tr>
+             <tr>
+               <td> <label>Mobile</label></td>
+               <td>
+                <input type="text" formControlName="mobile"/>
+                <div *ngIf="submitted && f.mobile.errors">
+                    <div *ngIf="f.mobile.errors.required">Mobile no is required</div>
+                    <div *ngIf="f.mobile.errors.pattern">Mobile no Must be Valid</div>
+                </div>
+               </td>
+             </tr>
+             <tr>
+               <td><label>Email</label></td>
+               <td>
+                <input type="text" formControlName="email" />
+                <div *ngIf="submitted && f.email.errors">
+                    <div *ngIf="f.email.errors.required">Email is required</div>
+                    <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                </div>
+               </td>
+             </tr>
+             <tr>
+               <td><label>Password</label></td>
+               <td>  <input type="password" formControlName="password"/>
+                <div *ngIf="submitted && f.password.errors">
+                    <div *ngIf="f.password.errors.required">Password is required</div>
+                    <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                </div>
+              </td>
+             </tr>
+             <tr>
+               <td>
+                <input type="checkbox" formControlName="acceptTerms" id="acceptTerms"/>
+                <label>Accept Terms & Conditions</label>
+               </td>
+             <td>
+              <div *ngIf="submitted && f.acceptTerms.errors">
+                <div>Accept Ts & Cs is required</div>
+              </div>
+             </td>
+             </tr>
+             <tr>
+               <td colspan="2">
+                <div>
+                  <button>Register</button>
+                  <button  type="reset" (click)="onReset()">Cancel</button>
+              </div>
+               </td>
+             </tr>
+           </table>
+
+
+        </form>
+
+
+

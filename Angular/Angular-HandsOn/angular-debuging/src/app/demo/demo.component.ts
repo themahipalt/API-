@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { GreetService } from '../greet.service';
 
 @Component({
   selector: 'app-demo',
@@ -7,18 +6,22 @@ import { GreetService } from '../greet.service';
   styleUrls: ['./demo.component.css']
 })
 export class DemoComponent implements OnInit {
-user_name:string;
-// greetserv:GreetService=new GreetService();
-msg:string;
-  constructor(private greetService:GreetService) { }
+n1:number;
+n2:number;
+result:number;
+  constructor() { }
 
   ngOnInit(): void {
   }
   Greet()
   {
-    //call the service method
-    this.msg=this.greetService.Greet(this.user_name);
-
+    console.log('Hello World');
   }
+  Sum()
+  {
+    this.result=Number(this.n1)+Number(this.n2);
+    console.log(this.result);
+  }
+
 
 }

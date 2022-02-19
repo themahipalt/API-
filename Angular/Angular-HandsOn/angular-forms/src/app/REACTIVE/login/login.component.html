@@ -1,0 +1,31 @@
+<div class="jumborton">
+    <div class="container">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+<table>
+  <tr>
+    <td>  <label>UserName</label></td>
+    <td>
+      <input type="text" formControlName="uname" [ngClass]="{ 'is-invalid': submitted && f.uname.errors }"/>
+      <div *ngIf="submitted && f.uname.errors" class="invalid-feedback">
+        <div *ngIf="f.uname.errors.required"> User Name is required</div>
+         
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td> <label>Password</label></td>
+    <td> <input type="password" formControlName="pwd" [ngClass]="{ 'is-invalid': submitted && f.pwd.errors }"/>
+      <div *ngIf="submitted && f.pwd.errors" class="invalid-feedback">
+        <div *ngIf="f.pwd.errors.required">Password is required</div>
+    </div></td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <button  [disabled]="submitted && !loginForm.valid" type="submit">Register</button>
+      <button  type="reset" (click)="onReset()">Cancel</button>
+    </td>
+  </tr>
+</table>
+      </form>
+    </div>
+</div>
