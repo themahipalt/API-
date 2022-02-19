@@ -38,11 +38,12 @@ export class RegisterComponent implements OnInit {
             console.log(JSON.stringify(this.registerForm.value));
             //assing form control values to model properties
             let user:User=new User();
-            user.firstName=this.registerForm.value["firstname"]
-            user.lastName=this.registerForm.value["lastname"]
+            user.firstName=this.registerForm.value["firstName"]
+            user.lastName=this.registerForm.value["lastName"]
+            console.log(user);
             //once all model properties are assined we can service method to pass the model data to db table
-            this.submitted=false;
-            this.registerForm.reset();
+           // this.submitted=false;
+            //this.registerForm.reset();
         }
     }
 
