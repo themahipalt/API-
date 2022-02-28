@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32106.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HandsOnAPIWithEFCore-CodeFirst-Demo1", "HandsOnAPIWithEFCore-CodeFirst-Demo1\HandsOnAPIWithEFCore-CodeFirst-Demo1.csproj", "{79BB33CA-0ABA-437D-91AB-48FDF537549D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{79BB33CA-0ABA-437D-91AB-48FDF537549D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79BB33CA-0ABA-437D-91AB-48FDF537549D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79BB33CA-0ABA-437D-91AB-48FDF537549D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79BB33CA-0ABA-437D-91AB-48FDF537549D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {326F1A9E-67BD-4DCD-B012-DC1B1CA8CAF8}
+	EndGlobalSection
+EndGlobal
