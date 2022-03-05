@@ -56,16 +56,25 @@ namespace HandsOnAPIUsingStoredProcedures.Controllers
         [Route("EditEmployee")]
         public IActionResult Edit(Employee employee)
         {
-            practiceDBContext.Employees.Update(employee);
-            practiceDBContext.SaveChanges();
+            SqlParameter[] parameters = new SqlParameter[3]
+              {
+                new SqlParameter(){ParameterName="@id",Value=employee.EmployeeId},
+                new SqlParameter(){ParameterName="@name",Value=employee.EmployeeName},
+                new SqlParameter(){ParameterName="@pcode",Value=employee.ProjectCode}
+              };
+            practiceDBContext.Database.ExecuteSqlRaw("AddEmployee @eid,@name,@pcode", parameters);
             return StatusCode(200, "Record Edited");
         }
         [HttpDelete]
         [Route("DeleteEmployee/{id}")]
         public IActionResult Delete(int id)
         {
-            Employee employee = practiceDBContext.Employees.Find(id);
-            practiceDBContext.Employees.Remove(employee);
+            SqlParameter parameter = new SqlParameter()
+            {
+                ParameterName = "@id",
+                Value = id
+            };
+            practiceDBContext.Database.ExecuteSqlRaw("DeleteEmployee @eid", parameter);
             practiceDBContext.SaveChanges();
             return StatusCode(200, "Record Deleted");
         }

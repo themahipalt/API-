@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewData["Title"] = "GetCities";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    @foreach(var item in ViewData["cities"] as string[]) //convert object into string array
+            {
+                <span class="text-info">@item</span>
+                <hr />
+            }
+</div>
+

@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewData["Title"] = "Greet";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h1 class="text-primary">Welcome,@ViewData["un"]</h1>
+    @* using for loop *@
+    @{ 
+        for(int i=1;i<=5;i++)
+            {
+                <span class="text-primary">@ViewData["un"]</span><br />
+            }
+    }
+</div>
+

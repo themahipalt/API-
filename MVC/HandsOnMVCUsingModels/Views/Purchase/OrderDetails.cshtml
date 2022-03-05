@@ -1,0 +1,20 @@
+﻿@model HandsOnMVCUsingModels.ViewModel.ProductOrder
+@{
+    ViewData["Title"] = "OrderDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h1>OrderDetails</h1>
+    <pre>
+ProductName:@Model.Product.ProductName
+Price:@Model.Product.Price
+Qty:@Model.Order.Qty
+OrderId:@Model.Order.OrderId
+OrderDate:@Model.Order.OrderDate
+TotalAmount:@Model.Order.OrderAmount
+DeliveryDate:@Model.Order.DeliveryDate
+</pre>
+</div>
+
+

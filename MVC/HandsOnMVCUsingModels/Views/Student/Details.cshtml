@@ -1,0 +1,17 @@
+﻿@*model declaration*@
+@model Student
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <pre>
+    ID:@Model.StudentId
+    Name:@Model.StudentName
+    Age:@Model.Age
+    STD:@Model.Std
+</pre>
+    <a asp-action="Index">back to Index</a>
+</div>
+
