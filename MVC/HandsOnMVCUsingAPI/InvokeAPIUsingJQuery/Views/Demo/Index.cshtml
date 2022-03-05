@@ -1,0 +1,160 @@
+﻿
+@{
+	ViewData["Title"] = "Index";
+}
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+	$(document).ready(function () {
+		
+		function GetAll() {
+			$.ajax({
+				type: "GET",
+                url: "https://localhost:44365/api/Product/GetAll",
+				contentType: 'application/json',
+				success: function (res) {
+					console.log(res);
+					$.each(res, (i, item) => {
+						let row = '<tr><td>' + item.pid + '</td><td>' +
+							item.pname + '</td><td>' +
+							item.price + '</td><td>' +
+							item.stock + '</td></tr>';
+						$('#product_list').append(row) //add row to the table
+					});
+				},
+				error: function (err) {
+					console.log(err);
+				}
+			})
+				}
+	
+		GetAll();
+		$('#badd').click(function () {
+           
+            let pname = $('#Pname').val();
+            let price = Number($('#Price').val());
+            let stock = Number($('#Stock').val());
+            $.ajax({
+                type: "POST",
+                url: "https://localhost:44365/api/Product/Add",
+                contentType: 'application/json',
+                data: JSON.stringify({ Pname: pname, Price: price, Stock: stock }), //Json.stringfy() convert javascript object into json
+                success: function (res) {
+                    console.log(res);
+                    window.location.reload(); //refresh the page
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+
+
+            })
+		})
+		$('#bsrch').click(() => {
+            let id = $('#Id').val(); //retrun Id value
+            console.log(id)
+            $.ajax({
+                type: "GET",
+                url: "https://localhost:44365/api/Product/GetById/" + id,
+                contentType: 'application/json',
+                success: function (res) {
+                    console.log(res);
+
+                    $('#Pname').val(res.pname);
+                    $('#Price').val(res.price);
+                    $('#Stock').val(res.stock);
+                },
+                error: function (err) {
+                    console.log(err);
+                    $('span').html(err.responseText);
+                }
+            })
+		})
+		$('#bdelete').click(() => {
+            let id = $('#Id').val();
+            console.log(id)
+            $.ajax({
+                type: "Delete",
+                url: "https://localhost:44365/api/Product/Delete/" + id,
+                contentType: 'application/json',
+                success: function (res) {
+                    console.log(res);
+                    $('span').html(res);
+                    window.location.reload();
+                },
+                error: function (err) {
+                    console.log(err);
+                    $('span').html(err.responseText);
+                }
+            })
+		})
+		$('#bedit').click(() => {
+            let pid = Number($('#Id').val());
+            let pname = $('#Pname').val();
+            let price = Number($('#Price').val());
+            let stock = Number($('#Stock').val());
+            $.ajax({
+                type: "PUT",
+                url: "https://localhost:44365/api/Product/Update",
+                contentType: 'application/json',
+                data: JSON.stringify({ Pid: pid, Pname: pname, Price: price, Stock: stock }),
+                success: function (res) {
+                    console.log(res);
+                    window.location.reload();
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+
+
+            })
+			
+		})
+	})
+</script>
+<h1>Index</h1>
+<div class="container">
+		<table class="table table-bordered">
+			<tr>
+				<td>ID</td>
+				<td>@Html.TextBox("Id")</td>
+			</tr>
+			<tr>
+				<td>Name</td>
+				<td>@Html.TextBox("Pname")</td>
+			</tr>
+			<tr>
+				<td>Price</td>
+				<td>@Html.TextBox("Price")</td>
+			</tr>
+			<tr>
+				<td>Stock</td>
+				<td>@Html.TextBox("Stock")</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<button id="badd" class="btn btn-primary">Add</button>
+					<button id="bsrch" class="btn btn-primary">Search</button>
+					<button id="bedit" class="btn btn-primary">Edit</button>
+					<button id="bdelete" class="btn btn-primary">Delete</button>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<span class="text-info"></span>
+				</td>
+			</tr>
+		</table>
+</div>
+<div class="container">
+	<table class="table table-bordered" id="product_list">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Name</td>
+                <td>Price</td>
+                <td>Stock</td>
+            </tr>
+        </thead>
+	</table>
+</div>
+

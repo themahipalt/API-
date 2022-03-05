@@ -1,0 +1,154 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+@section Scripts{ 
+<script>
+	$(document).ready(() => {
+		function GetAll() {
+			$.ajax({
+				type: "GET",
+				url: "http://mywebsite.com/api/Product/GetAll",
+				contentType: 'application/json',
+				success: function (response) {
+					console.log(response)
+					$.each(response, (i,item) => {
+						let row = '<tr><td>' + item.pid + '</td><td>'+ item.pname + '</td><td>' +
+							item.price + '</td><td>' +
+							item.stock + '</td></tr>';
+						$('#list').append(row);
+					})
+				},
+				error: function (err) {
+					console.log(err.responseText)
+				}
+			})
+		}
+		GetAll();
+		$('#btnsrch').click(() => {
+			let pid = $('#Pid').val(); //retunrs Pid Textbox value
+			$.ajax({
+				type: "GET",
+				url: "https://localhost:44365/api/Product/GetById/"+pid,
+				contentType: 'application/json',
+				success: function (response) {
+					console.log(response)
+					$('#Pname').val(response.pname);
+					$('#Price').val(response.price);
+					$('#Stock').val(response.stock);
+				},
+				error: function (err) {
+					console.log(err.responseText)
+					$('span').html(err.responseText);
+				}
+			})
+		})
+		$('#btnadd').click(() => {
+
+			let pname = $('#Pname').val();
+			let price = Number($('#Price').val());
+			let stock = Number($('#Stock').val());
+			let item = { pname: pname, price: price, stock: stock };
+			console.log(item)
+
+			$.ajax({
+				type: "POST",
+				url: "https://localhost:44365/api/Product/Add",
+				data: JSON.stringify(item), //converts Javascript object into Json
+				contentType: 'application/json',
+				success: function (response) {
+					console.log(response)
+					$('span').html(response);
+					window.location.reload(); //reloads the page
+				},
+				error: function (err) {
+					console.log(err.responseText)
+					$('span').html(err.responseText);
+				}
+			})
+		})
+			$('#btnedit').click(() => {
+				let pid = Number($('#Pid').val());
+				let pname = $('#Pname').val();
+				let price = Number($('#Price').val());
+				let stock = Number($('#Stock').val());
+				let item = { pid:pid,pname: pname, price: price, stock: stock };
+				console.log(item)
+
+				$.ajax({
+					type: "PUT",
+					url: "https://localhost:44365/api/Product/Update",
+					data: JSON.stringify(item), //converts Javascript object into Json
+					contentType: 'application/json',
+					success: function (response) {
+						console.log(response)
+						//$('span').html(response);
+						window.location.reload(); //reloads the page
+					},
+					error: function (err) {
+						console.log(err.responseText)
+						$('span').html(err.responseText);
+					}
+				})
+			})
+			$('#btndelete').click(() => {
+				let pid = $('#Pid').val(); //retunrs Pid Textbox value
+				$.ajax({
+					type: "DELETE",
+					url: "https://localhost:44365/api/Product/Delete/" + pid,
+					contentType: 'application/json',
+					success: function (response) {
+						console.log(response)
+						window.location.reload();
+					},
+					error: function (err) {
+						console.log(err.responseText)
+						$('span').html(err.responseText);
+					}
+				})
+			})
+	})
+</script>
+}
+<h1>Index</h1>
+<div class="container">
+	<table class="table table-bordered">
+		<tr>
+			<td>ID</td>
+			<td>@Html.TextBox("Pid")</td>
+		</tr>
+		<tr>
+			<td>Name</td>
+			<td>@Html.TextBox("Pname")</td>
+		</tr>
+		<tr>
+			<td>Price</td>
+			<td>@Html.TextBox("Price")</td>
+		</tr>
+		<tr>
+			<td>Stock</td>
+			<td>@Html.TextBox("Stock")</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<button class="btn btn-primary" id="btnadd">Add</button>
+				<button class="btn btn-primary" id="btnsrch">Search</button>
+				<button class="btn btn-primary" id="btnedit">Update</button>
+				<button class="btn btn-primary" id="btndelete">Delete</button>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<span class="text-info"></span>
+			</td>
+		</tr>
+	</table>
+</div>
+<div class="container">
+	<table class="table table-bordered" id="list">
+		<tr>
+			<th>ID</th><th>Name</th><th>Price</th><th>Stock</th>
+		</tr>
+	</table>
+</div>
+

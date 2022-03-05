@@ -22,11 +22,11 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="Std">STD</label>
-                    <select asp-for="Std">
-                        <option>I</option>
+                    <select asp-for="Std" asp-items='@new SelectList(new string[] { "I","II","III","IV"})'>
+                        @*<option>I</option>
                         <option>II</option>
                         <option>III</option>
-                        <option>IV</option>
+                        <option>IV</option>*@
                     </select>
                 </div>
                 <input type="submit" class="btn btn-primary"/>
